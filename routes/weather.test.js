@@ -28,7 +28,11 @@ describe("/weather", () => {
       expect(form.prop('action')).toEqual('/weather/location');
       const input = form.find('input[type=text]');
       expect(input.length).toEqual(1)
-      expect(input.prop('placeholder')).toEqual('name');
+      expect(input[0].attribs).toEqual({
+        type: 'text',
+        placeholder: 'Name',
+        name: 'name'
+      });
       const button = form.find('input[type=submit]');
       expect(button.length).toEqual(1);
     });
