@@ -17,7 +17,7 @@ router.get("/location", async (req, res, next) => {
             res.render('location', { name: weatherData.name, temperature: weatherData.temperature });
         } else {
             res.status(404);
-            res.render('error', { name: location });
+            res.render('location', { name: location, temperature: 'not available' });
         }
     }
 });
