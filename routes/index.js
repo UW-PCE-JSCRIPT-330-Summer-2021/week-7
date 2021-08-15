@@ -6,4 +6,6 @@ router.get('/', (req, res, next) => {
   res.render('index', { data: {time: timeStamp }, items: ['item one', 'item two', 'item three'] });
 });
 
+router.use('/weather', require('./weather'));
+
 module.exports = router;
