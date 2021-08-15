@@ -8,12 +8,20 @@ router.get('/', (req, res, next) => {
 
 router.get('/location', async (req, res, next) => {
   try {
-    const locationName = req.query;
-    const weather = await weatherDAO.getWeather(locationName);
-    res.json(weather);
-    res.render('location');
+    const location = req.query;
+    if (!location.name || location.name === '') {
+      res.redirect('/weather');
+      return;
+    } else {
+      const weather = await weatherDAO.getWeather(location.name);
+      if (!weather || weather === '') {
+        res.status(404).render('location', { name: location.name, temperature: 'not available' });
+        return;
+      } else {
+        res.render('location', { name: weather.name, temperature: weather.temperature });
+      }
+    }
   } catch (e) {
-    //console.log(e);
     next (e);
   }
 });
