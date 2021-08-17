@@ -9,6 +9,6 @@ mongoose.connect('mongodb://localhost/week7', {
   useUnifiedTopology: true
 }).then(() => {
   server.listen(port, () => {
-   console.log(`Server is listening on http://localhost:${port}`);
+  console.log(`Server is listening on http://localhost:${port}`);
   });
 });
