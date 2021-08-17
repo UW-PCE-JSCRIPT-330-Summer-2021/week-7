@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon -e js,json,mustache index.js",
-    "test": "jest --coverage --runInBand",
+    "test": "jest --coverage --runInBand --color",
     "tdd": "jest --watch --runInBand"
   },
   "repository": {
