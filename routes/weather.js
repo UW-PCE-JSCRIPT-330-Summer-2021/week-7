@@ -10,7 +10,7 @@ router.get("/", (req, res, next) => {
 router.get("/location", async (req, res, next) => {
   const location = req.query.name;
   if (!location || location === '') {
-    return res.redirect(302, '/weather');
+    return res.redirect(302, '/weather')
   }
   try {
     const weather = await weatherDAO.getWeatherByLocation(location);
