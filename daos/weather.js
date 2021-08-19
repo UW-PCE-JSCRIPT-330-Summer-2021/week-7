@@ -2,9 +2,9 @@ const Weather = require('../models/weather');
 
 module.exports = {};
 
-module.exports.getByLocation = (inputName) => {
-  if (inputName) {
-    return Weather.findOne({ name: inputName }).lean();
+module.exports.getByLocation = (locationName) => {
+  if (locationName) {
+    return Weather.findOne({ name: locationName }).lean();
   } else {
     return null;
   }
